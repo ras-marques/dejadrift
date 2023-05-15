@@ -1,3 +1,4 @@
 res://default_env.tres
-res://Car.tscn
 res://Main.tscn
+res://CarController.gd
+res://Car.tscn
