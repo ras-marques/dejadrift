@@ -1,21 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://u4jtbwt3a35f"]
+[gd_scene load_steps=4 format=3 uid="uid://c56ep7k85v3b3"]
 
-[ext_resource type="Script" path="res://CarController.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dbteno61iywsb" path="res://AE86.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://h7iequy3ibim" path="res://arrow.png" id="3"]
+[ext_resource type="Script" path="res://Scripts/CarController.gd" id="1_1r2dc"]
+[ext_resource type="Texture2D" uid="uid://dbteno61iywsb" path="res://Sprites/AE86.png" id="2_fhtea"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 32)
 
 [node name="Car" type="RigidBody2D"]
 gravity_scale = 0.0
-script = ExtResource("1")
+script = ExtResource("1_1r2dc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2")
+texture = ExtResource("2_fhtea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
 
-[node name="Arrow" type="Sprite2D" parent="."]
-texture = ExtResource("3")
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
