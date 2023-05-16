@@ -21,6 +21,5 @@ texture = ExtResource("2_fhtea")
 shape = SubResource("1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 1.0
+position_smoothing_speed = 4.0

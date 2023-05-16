@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var accelerationValue = 80
+var accelerationValue = 120
 var brakingValue = 40
 var turningValue = 20
 
@@ -8,16 +8,16 @@ var acceleration = 0
 var turning = 0
 
 var turningAngle = 0
-var frontWheelVector = 0
 
 var powerVector
 var turningVector
 
 var packedScene = preload("res://drift_marks.tscn")
 
+var drawDriftMarks = false
+
 func _ready():
-	powerVector = get_node("ArrowPower")
-	turningVector = get_node("ArrowPower")
+	pass
 
 func get_input():	
 	if Input.is_action_pressed("car_accelerate"):
@@ -39,10 +39,12 @@ func get_input():
 
 func _process(_delta):
 	get_input()
-	var newNode = packedScene.instantiate()
-	get_tree().get_root().add_child(newNode)
-	newNode.z_index = -1
-	newNode.position = self.position
+	if(drawDriftMarks):
+		var newNode = packedScene.instantiate()
+		get_tree().get_root().add_child(newNode)
+		newNode.z_index = -1
+		newNode.position = self.position
+		newNode.rotation = self.rotation
 
 func computeForceForTheWheel(velocity, badDirection):
 	var velocityInBadDirection = velocity.dot(badDirection)
@@ -82,3 +84,8 @@ func _physics_process(_delta):
 	var frontNoSlipVector = Vector2(sin(frontNoSlipAngle), -cos(frontNoSlipAngle))
 	var frontWheelFrictionForce = computeForceForTheWheel(velocity, frontNoSlipVector)
 	apply_force(frontWheelFrictionForce, frontWheelPosition)
+	
+	if backWheelFrictionForce.length() > 55 or frontWheelFrictionForce.length() > 55:
+		drawDriftMarks = true
+	else:
+		drawDriftMarks = false
