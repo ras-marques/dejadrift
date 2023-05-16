@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c56ep7k85v3b3"]
+[gd_scene load_steps=5 format=3 uid="uid://c56ep7k85v3b3"]
 
 [ext_resource type="Script" path="res://Scripts/CarController.gd" id="1_1r2dc"]
 [ext_resource type="Texture2D" uid="uid://dbteno61iywsb" path="res://Sprites/AE86.png" id="2_fhtea"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_66oba"]
+bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 32)
 
 [node name="Car" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_66oba")
 gravity_scale = 0.0
 script = ExtResource("1_1r2dc")
 

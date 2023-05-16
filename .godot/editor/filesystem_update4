@@ -1,6 +1,4 @@
 res://default_env.tres
 res://Main.tscn
 res://Car.tscn
-res://CarController.gd
-res://vectorLine.tscn
 res://Scripts/CarController.gd

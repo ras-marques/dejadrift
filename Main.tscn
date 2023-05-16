@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb43i0bwanru0"]
+[gd_scene load_steps=3 format=3 uid="uid://cb43i0bwanru0"]
 
 [ext_resource type="PackedScene" uid="uid://c56ep7k85v3b3" path="res://Car.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cbguxsnpephhj" path="res://Sprites/Asphalt.png" id="1_bhb04"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+z_index = -10
+texture_repeat = 2
+offset_left = -566.0
+offset_top = -778.0
+offset_right = 4790.0
+offset_bottom = 3828.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_bhb04")
+stretch_mode = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(607, 542, 635, 127, 702, -22, 847, -16, 910, 135, 894, 483, 724, 610)
@@ -13,9 +25,11 @@ polygon = PackedVector2Array(607, 542, 635, 127, 702, -22, 847, -16, 910, 135, 8
 polygon = PackedVector2Array(523, 326, 554, 18, 691, -189, 691, -189, 939, -111, 1040, 305, 972, 681, 669, 740, 515, 605, 518, 362, 421, 375, 423, 727, 639, 870, 1099, 789, 1270, 145, 1118, -181, 734, -309, 343, -265, 415, 321)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(607, 542, 635, 127, 702, -22, 847, -16, 910, 135, 894, 483, 724, 610)
 
 [node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
+color = Color(1, 1, 0, 1)
 polygon = PackedVector2Array(523, 326, 554, 18, 691, -189, 691, -189, 939, -111, 1040, 305, 972, 681, 669, 740, 515, 605, 518, 362, 421, 375, 423, 727, 639, 870, 1099, 789, 1270, 145, 1118, -181, 734, -309, 343, -265, 415, 321)
 
 [node name="Car" parent="." instance=ExtResource("1")]

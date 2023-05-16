@@ -13,6 +13,8 @@ var frontWheelVector = 0
 var powerVector
 var turningVector
 
+var packedScene = preload("res://drift_marks.tscn")
+
 func _ready():
 	powerVector = get_node("ArrowPower")
 	turningVector = get_node("ArrowPower")
@@ -37,6 +39,10 @@ func get_input():
 
 func _process(_delta):
 	get_input()
+	var newNode = packedScene.instantiate()
+	get_tree().get_root().add_child(newNode)
+	newNode.z_index = -1
+	newNode.position = self.position
 
 func computeForceForTheWheel(velocity, badDirection):
 	var velocityInBadDirection = velocity.dot(badDirection)
