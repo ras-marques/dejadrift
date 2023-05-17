@@ -2,3 +2,4 @@ res://default_env.tres
 res://Main.tscn
 res://Car.tscn
 res://Scripts/CarController.gd
+res://WelcomeLabelScript.gd

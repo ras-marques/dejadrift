@@ -19,7 +19,7 @@ var drawDriftMarks = false
 func _ready():
 	pass
 
-func get_input():	
+func get_input():
 	if Input.is_action_pressed("car_accelerate"):
 		acceleration = accelerationValue
 	elif Input.is_action_pressed("car_brake"):
@@ -36,6 +36,9 @@ func get_input():
 	else:
 		turningAngle = 0
 		turning = 0
+		
+	if Time.get_ticks_msec() < 28000:
+		acceleration = 0
 
 func _process(_delta):
 	get_input()
