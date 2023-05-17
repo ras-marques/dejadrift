@@ -1,9 +1,11 @@
-Label
-CanvasLayer
 AudioStreamPlayer2D
+Label
+Button
+TextureButton
+TextureRect
+CanvasLayer
 Camera2D
 Sprite2D
-TextureRect
 Line2D
 MeshInstance2D
 Polygon2D

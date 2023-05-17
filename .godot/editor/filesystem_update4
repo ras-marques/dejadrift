@@ -1,5 +1,10 @@
 res://default_env.tres
+res://Scenes/main_menu.tscn
 res://Main.tscn
 res://Car.tscn
+res://Scripts/StartCareerButton.gd
+res://Level1.tscn
+res://Scenes/Level1.tscn
+res://Scenes/Car.tscn
 res://Scripts/CarController.gd
-res://WelcomeLabelScript.gd
+res://Scripts/WelcomeLabelScript.gd

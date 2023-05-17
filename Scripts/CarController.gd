@@ -12,7 +12,7 @@ var turningAngle = 0
 var powerVector
 var turningVector
 
-var packedScene = preload("res://drift_marks.tscn")
+var packedScene = preload("res://Scenes/drift_marks.tscn")
 
 var drawDriftMarks = false
 
@@ -37,8 +37,8 @@ func get_input():
 		turningAngle = 0
 		turning = 0
 		
-	if Time.get_ticks_msec() < 28000:
-		acceleration = 0
+#	if Time.get_ticks_msec() < 28000:
+#		acceleration = 0
 
 func _process(_delta):
 	get_input()
