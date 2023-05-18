@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var accelerationValue = 120
-var brakingValue = 40
+var brakingValue = 60
 var turningValue = 20
 
 var acceleration = 0
@@ -51,7 +51,7 @@ func _process(_delta):
 
 func computeForceForTheWheel(velocity, badDirection):
 	var velocityInBadDirection = velocity.dot(badDirection)
-	var force = badDirection.normalized() * velocityInBadDirection * -0.7
+	var force = badDirection.normalized() * velocityInBadDirection * -1
 	return force
 
 func _physics_process(_delta):
@@ -87,6 +87,10 @@ func _physics_process(_delta):
 	var frontNoSlipVector = Vector2(sin(frontNoSlipAngle), -cos(frontNoSlipAngle))
 	var frontWheelFrictionForce = computeForceForTheWheel(velocity, frontNoSlipVector)
 	apply_force(frontWheelFrictionForce, frontWheelPosition)
+	
+#	print((int)(velocity.length()/2))
+#	print(get_linear_velocity())
+	
 	
 	if backWheelFrictionForce.length() > 55 or frontWheelFrictionForce.length() > 55:
 		drawDriftMarks = true

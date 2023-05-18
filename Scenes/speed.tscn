@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4axtgd3sfwji"]
+
+[ext_resource type="Script" path="res://Scenes/SpeedLabel.gd" id="1_3tps8"]
+
+[node name="Speed" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 150.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "0 KM/H"
+horizontal_alignment = 2
+script = ExtResource("1_3tps8")

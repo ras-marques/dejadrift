@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c27bvr337ikww"]
+
+[ext_resource type="PackedScene" uid="uid://b4axtgd3sfwji" path="res://Scenes/speed.tscn" id="1_gs672"]
+
+[node name="Interface" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+position = Vector2(0, -4)
+color = Color(0.415686, 0.611765, 0.768627, 1)
+polygon = PackedVector2Array(1000, 552, 1104, 552, 1112, 560, 1112, 576, 1104, 584, 1000, 584, 992, 576, 992, 560)
+
+[node name="Speed" parent="CanvasLayer" instance=ExtResource("1_gs672")]
+position = Vector2(950, 550)

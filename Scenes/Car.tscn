@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dbteno61iywsb" path="res://Sprites/AE86.png" id="2_fhtea"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_66oba"]
-bounce = 1.0
+friction = 10.0
 
-[sub_resource type="RectangleShape2D" id="1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojfaq"]
 size = Vector2(16, 32)
 
 [node name="Car" type="RigidBody2D"]
@@ -18,7 +18,7 @@ script = ExtResource("1_1r2dc")
 texture = ExtResource("2_fhtea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
+shape = SubResource("RectangleShape2D_ojfaq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
