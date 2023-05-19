@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceworb4ioxxbh"
-path="res://.godot/imported/index.png-f4e3ab9803d7720c9a912e105b6606e0.ctex"
+uid="uid://dfa75cryh826w"
+path="res://.godot/imported/AE86_drift_marks_one_axis.png-92a57e51f9d01e2ea6c76d6551be9895.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DejaDriftHTML/index.png"
-dest_files=["res://.godot/imported/index.png-f4e3ab9803d7720c9a912e105b6606e0.ctex"]
+source_file="res://Sprites/AE86_drift_marks_one_axis.png"
+dest_files=["res://.godot/imported/AE86_drift_marks_one_axis.png-92a57e51f9d01e2ea6c76d6551be9895.ctex"]
 
 [params]
 

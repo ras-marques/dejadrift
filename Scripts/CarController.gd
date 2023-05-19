@@ -6,18 +6,22 @@ var turningValue = 20
 
 var acceleration = 0
 var turning = 0
+var handbrake = false
 
 var turningAngle = 0
 
 var powerVector
 var turningVector
 
-var packedScene = preload("res://Scenes/drift_marks.tscn")
+var driftMarks = preload("res://Scenes/drift_marks.tscn")
 
-var drawDriftMarks = false
+var drawBackDriftMarks = false
+var drawFrontDriftMarks = false
+
+var animatedSprite
 
 func _ready():
-	pass
+	animatedSprite = get_node("Sprite2D")
 
 func get_input():
 	if Input.is_action_pressed("car_accelerate"):
@@ -36,17 +40,31 @@ func get_input():
 	else:
 		turningAngle = 0
 		turning = 0
-		
+	
+	if Input.is_action_pressed("car_handbrake"):
+		handbrake = true
+	else:
+		handbrake = false
 #	if Time.get_ticks_msec() < 28000:
 #		acceleration = 0
 
 func _process(_delta):
 	get_input()
-	if(drawDriftMarks):
-		var newNode = packedScene.instantiate()
+	if(turning < 0): animatedSprite.set_frame(1)
+	elif(turning > 0): animatedSprite.set_frame(2)
+	else: animatedSprite.set_frame(0)
+	
+	if(drawBackDriftMarks):
+		var newNode = driftMarks.instantiate()
 		get_tree().get_root().add_child(newNode)
 		newNode.z_index = -1
-		newNode.position = self.position
+		newNode.position = self.position + Vector2(0,9).rotated(rotation)
+		newNode.rotation = self.rotation
+	if(drawFrontDriftMarks):
+		var newNode = driftMarks.instantiate()
+		get_tree().get_root().add_child(newNode)
+		newNode.z_index = -1
+		newNode.position = self.position - Vector2(0,9).rotated(rotation)
 		newNode.rotation = self.rotation
 
 func computeForceForTheWheel(velocity, badDirection):
@@ -59,7 +77,8 @@ func _physics_process(_delta):
 	var frontWheelPosition = Vector2(0, -9).rotated(rotation)   #this is good!
 	
 	var backWheelForwardForce = Vector2(sin(rotation), -cos(rotation)) * acceleration  #this is good!
-	apply_force(backWheelForwardForce, backWheelPosition) #this is good!
+	if(!handbrake):
+		apply_force(backWheelForwardForce, backWheelPosition) #this is good!
 	
 	var backWheelAngle = rotation
 	var frontWheelAngle = rotation + turningAngle
@@ -82,7 +101,10 @@ func _physics_process(_delta):
 	
 	var backNoSlipVector = Vector2(sin(backNoSlipAngle), -cos(backNoSlipAngle))
 	var backWheelFrictionForce = computeForceForTheWheel(velocity, backNoSlipVector)
-	apply_force(backWheelFrictionForce, backWheelPosition)
+	if(!handbrake):
+		apply_force(backWheelFrictionForce, backWheelPosition)
+	else:
+		apply_force(backWheelFrictionForce*0.7, backWheelPosition)
 	
 	var frontNoSlipVector = Vector2(sin(frontNoSlipAngle), -cos(frontNoSlipAngle))
 	var frontWheelFrictionForce = computeForceForTheWheel(velocity, frontNoSlipVector)
@@ -91,8 +113,11 @@ func _physics_process(_delta):
 #	print((int)(velocity.length()/2))
 #	print(get_linear_velocity())
 	
-	
-	if backWheelFrictionForce.length() > 55 or frontWheelFrictionForce.length() > 55:
-		drawDriftMarks = true
+	if backWheelFrictionForce.length() > 55:
+		drawBackDriftMarks = true
 	else:
-		drawDriftMarks = false
+		drawBackDriftMarks = false
+	if frontWheelFrictionForce.length() > 55:
+		drawFrontDriftMarks = true
+	else:
+		drawFrontDriftMarks = false

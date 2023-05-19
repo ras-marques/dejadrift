@@ -1,10 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://c56ep7k85v3b3"]
+[gd_scene load_steps=8 format=3 uid="uid://c56ep7k85v3b3"]
 
 [ext_resource type="Script" path="res://Scripts/CarController.gd" id="1_1r2dc"]
 [ext_resource type="Texture2D" uid="uid://dbteno61iywsb" path="res://Sprites/AE86.png" id="2_fhtea"]
+[ext_resource type="Texture2D" uid="uid://ckik7tgyokkmk" path="res://Sprites/AE86Left.png" id="3_6qbl8"]
+[ext_resource type="Texture2D" uid="uid://nsuyoe452lmp" path="res://Sprites/AE86Right.png" id="4_kv876"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_66oba"]
 friction = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urww2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fhtea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6qbl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kv876")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojfaq"]
 size = Vector2(16, 32)
@@ -14,8 +33,8 @@ physics_material_override = SubResource("PhysicsMaterial_66oba")
 gravity_scale = 0.0
 script = ExtResource("1_1r2dc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fhtea")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_urww2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ojfaq")
