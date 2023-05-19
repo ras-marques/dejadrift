@@ -1,7 +1,8 @@
-res://default_env.tres::b86ef36c083c0eed8a1b0a041012c137::1684413972::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
-res://Scenes/Car.tscn::679e8f715744d31d5ea7c1c6bd7607d1::1684413972::res://.godot/exported/133200997/export-5128fc71f47f2c89a04650fe4e759d0b-Car.scn
+res://default_env.tres::b86ef36c083c0eed8a1b0a041012c137::1684500728::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://Scenes/Car.tscn::cc03cf6968d5d49089d752d2c154668f::1684500727::res://.godot/exported/133200997/export-5128fc71f47f2c89a04650fe4e759d0b-Car.scn
 res://Scenes/drift_marks.tscn::d95c31df791a7c5c7cd016bae00fd3f9::1684239197::res://.godot/exported/133200997/export-2d5630306919d0a90e186b7d5425ba1b-drift_marks.scn
-res://Scenes/Level1.tscn::235280d0870c346e38fb7f3cf529c674::1684413972::res://.godot/exported/133200997/export-84f9ae3bda0f08deca657157f1bffdaf-Level1.scn
-res://Scenes/main_menu.tscn::e50631da7f177896b5d713eeb642a3fe::1684413972::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
-res://Scenes/interface.tscn::4ed8c39f150587bc8811648bf5ade202::1684413972::res://.godot/exported/133200997/export-d35c374e34c7becfbded7ca557de80a9-interface.scn
-res://Scenes/speed.tscn::a74b36416eef4a1f7387f77fb012bfe4::1684413972::res://.godot/exported/133200997/export-e87a8b09392c45d104e35c3f19368d84-speed.scn
+res://Scenes/Level1.tscn::af335bdbccae596f66b69fd724d065b3::1684500727::res://.godot/exported/133200997/export-84f9ae3bda0f08deca657157f1bffdaf-Level1.scn
+res://Scenes/main_menu.tscn::e50631da7f177896b5d713eeb642a3fe::1684500727::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
+res://Scenes/interface.tscn::f67f9211b4db72c59622a84b913d0d34::1684500728::res://.godot/exported/133200997/export-d35c374e34c7becfbded7ca557de80a9-interface.scn
+res://Scenes/speed.tscn::7a9297fdaf88e61fc633d815a214feae::1684498785::res://.godot/exported/133200997/export-e87a8b09392c45d104e35c3f19368d84-speed.scn
+res://Scenes/time.tscn::df08164c7aa39d77d2f85726a8b054ab::1684500728::res://.godot/exported/133200997/export-5ab93c8c7905322a802879217d39d0ec-time.scn

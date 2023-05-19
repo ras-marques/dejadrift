@@ -23,3 +23,5 @@ shape = SubResource("RectangleShape2D_ojfaq")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

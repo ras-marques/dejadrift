@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://sjq33h36vyx7"]
+
+[ext_resource type="Script" path="res://Scripts/TimeTracker.gd" id="1_fq86g"]
+
+[node name="Time" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 150.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "00:00:000"
+horizontal_alignment = 2
+script = ExtResource("1_fq86g")
