@@ -14,14 +14,20 @@ var powerVector
 var turningVector
 
 var driftMarks = preload("res://Scenes/drift_marks.tscn")
+var driftSoundPlayer
+var accelerateSoundPlayer
 
 var drawBackDriftMarks = false
 var drawFrontDriftMarks = false
 
 var animatedSprite
 
+var onGravel = false
+
 func _ready():
 	animatedSprite = get_node("Sprite2D")
+	driftSoundPlayer = get_node("ScreechSound")
+	accelerateSoundPlayer = get_node("AccelerateSound")
 
 func get_input():
 	if Input.is_action_pressed("car_accelerate"):
@@ -121,3 +127,40 @@ func _physics_process(_delta):
 		drawFrontDriftMarks = true
 	else:
 		drawFrontDriftMarks = false
+	
+	if backWheelForwardForce.length() != 0:
+		if not accelerateSoundPlayer.playing or accelerateSoundPlayer.get_playback_position() > 3:
+			accelerateSoundPlayer.play()
+			accelerateSoundPlayer.seek(0.3)
+	else:
+		accelerateSoundPlayer.stop()
+	
+	if (backWheelFrictionForce.length() > 55 or frontWheelFrictionForce.length() > 55):
+		if not driftSoundPlayer.playing or driftSoundPlayer.get_playback_position() > 1.4:
+			driftSoundPlayer.play()
+			driftSoundPlayer.seek(.4)
+	elif backWheelFrictionForce.length() < 55 and frontWheelFrictionForce.length() < 55:
+		driftSoundPlayer.stop()
+
+	if onGravel:
+		var gravelForce = Vector2(sin(rotation), -cos(rotation)) * -velocity.length()  #this is good!
+		apply_force(gravelForce, backWheelPosition) #this is good!
+
+func _on_area_2d_body_entered(body):
+	if body.name == "Car":
+		onGravel = true
+
+func _on_gravel_pits_body_exited(body):
+	if body.name == "Car":
+		onGravel = false
+
+var checkPoints = [0, 1, 2, 3]
+var nextIndex = 0
+func _on_track_check_points_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body.name == "Car":
+		if nextIndex == 4:
+			print("lapped!") # call something here to log the lap time
+			nextIndex = 0
+		elif local_shape_index == checkPoints[nextIndex]:
+			if nextIndex < checkPoints.size():
+				nextIndex = nextIndex + 1

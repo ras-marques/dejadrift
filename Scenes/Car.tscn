@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c56ep7k85v3b3"]
+[gd_scene load_steps=13 format=3 uid="uid://c56ep7k85v3b3"]
 
 [ext_resource type="Script" path="res://Scripts/CarController.gd" id="1_1r2dc"]
 [ext_resource type="Texture2D" uid="uid://dbteno61iywsb" path="res://Sprites/AE86.png" id="2_fhtea"]
+[ext_resource type="AudioStream" uid="uid://dhg6lbc6kgu2q" path="res://Sounds/drifting.wav" id="2_vbvoh"]
+[ext_resource type="AudioStream" uid="uid://bm631rxy4l13b" path="res://Sounds/european_canyon.wav" id="2_yok7b"]
 [ext_resource type="Texture2D" uid="uid://ckik7tgyokkmk" path="res://Sprites/AE86Left.png" id="3_6qbl8"]
+[ext_resource type="AudioStream" uid="uid://b4ppblvjuwu18" path="res://Sounds/car_accelerate.wav" id="3_8pdwg"]
 [ext_resource type="Texture2D" uid="uid://nsuyoe452lmp" path="res://Sprites/AE86Right.png" id="4_kv876"]
+[ext_resource type="Texture2D" uid="uid://b3obalt4myde2" path="res://Sprites/BackLight.png" id="7_el5ax"]
+[ext_resource type="Texture2D" uid="uid://b2x07w4di2xty" path="res://Sprites/FrontLight.png" id="8_pwf7j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_66oba"]
 friction = 10.0
@@ -33,6 +38,18 @@ physics_material_override = SubResource("PhysicsMaterial_66oba")
 gravity_scale = 0.0
 script = ExtResource("1_1r2dc")
 
+[node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yok7b")
+autoplay = true
+
+[node name="ScreechSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vbvoh")
+volume_db = -26.0
+
+[node name="AccelerateSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8pdwg")
+volume_db = -6.0
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_urww2")
 
@@ -40,7 +57,28 @@ sprite_frames = SubResource("SpriteFrames_urww2")
 shape = SubResource("RectangleShape2D_ojfaq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="BackLightLeft" type="PointLight2D" parent="."]
+position = Vector2(-5, 16)
+color = Color(0.986533, 0.0856261, 0.0552826, 1)
+energy = 3.0
+texture = ExtResource("7_el5ax")
+
+[node name="BackLightRight" type="PointLight2D" parent="."]
+position = Vector2(5, 16)
+color = Color(0.986533, 0.0856261, 0.0552826, 1)
+energy = 3.0
+texture = ExtResource("7_el5ax")
+
+[node name="FrontLightLeft" type="Sprite2D" parent="."]
+position = Vector2(-5, -28)
+texture = ExtResource("8_pwf7j")
+
+[node name="FrontLightRight" type="Sprite2D" parent="."]
+position = Vector2(6, -28)
+texture = ExtResource("8_pwf7j")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://dob2r3eby7mhc"]
 
 [ext_resource type="Script" path="res://Scripts/SpeedLabel.gd" id="1_3tps8"]
 

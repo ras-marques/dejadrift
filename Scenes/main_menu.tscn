@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://ntwf20qw72g0"]
 
-[ext_resource type="AudioStream" uid="uid://cx7qk7r2x2oww" path="res://Sounds/dejavu.mp3" id="1_7b3q5"]
+[ext_resource type="AudioStream" uid="uid://do27ru7j2718l" path="res://Sounds/circuitsynthwave.wav" id="1_ts6xy"]
 [ext_resource type="Texture2D" uid="uid://glk1pimyuwqr" path="res://Sprites/mainMenuBackground.jpg" id="1_v786i"]
 [ext_resource type="Script" path="res://Scripts/StartCareerButton.gd" id="2_4dgya"]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_7b3q5")
+stream = ExtResource("1_ts6xy")
+volume_db = -24.0
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -46,6 +47,6 @@ offset_left = 9.0
 offset_top = 617.0
 offset_right = 49.0
 offset_bottom = 640.0
-text = "A game brought to you by Rúben Marques"
+text = "A game brought to you by Rúben Marques | ImmersiveDevices"
 
 [connection signal="pressed" from="CanvasLayer/StartCareerButton" to="CanvasLayer/StartCareerButton" method="_on_pressed"]

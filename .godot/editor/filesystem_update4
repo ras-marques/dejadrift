@@ -1,8 +1,9 @@
 res://default_env.tres
-res://Scenes/Car.tscn
 res://Scenes/Level1.tscn
+res://Scenes/Car.tscn
 res://Scenes/main_menu.tscn
 res://Scenes/interface.tscn
 res://Scenes/time.tscn
-res://Scripts/CarController.gd
 res://Scenes/drift_marks.tscn
+res://Scenes/speed.tscn
+res://Scripts/CarController.gd
