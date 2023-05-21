@@ -24,10 +24,14 @@ var animatedSprite
 
 var onGravel = false
 
+var lapCounter
+
 func _ready():
 	animatedSprite = get_node("Sprite2D")
 	driftSoundPlayer = get_node("ScreechSound")
 	accelerateSoundPlayer = get_node("AccelerateSound")
+	
+	lapCounter = get_node("../Interface/CanvasLayer/LapCounter/Label")
 
 func get_input():
 	if Input.is_action_pressed("car_accelerate"):
@@ -159,7 +163,7 @@ var nextIndex = 0
 func _on_track_check_points_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body.name == "Car":
 		if nextIndex == 4:
-			print("lapped!") # call something here to log the lap time
+			lapCounter.increaseLapCount()
 			nextIndex = 0
 		elif local_shape_index == checkPoints[nextIndex]:
 			if nextIndex < checkPoints.size():
