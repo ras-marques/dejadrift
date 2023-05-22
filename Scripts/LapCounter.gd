@@ -3,9 +3,12 @@ extends Label
 var lapCount
 var totalNumberOfLaps
 
+var lapTimeCounter
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	lapCount = 1
+	lapTimeCounter = get_node("../../Time/Label")
+	lapCount = 0
 	totalNumberOfLaps = 2
 	self.text = str(lapCount) + "/" + str(totalNumberOfLaps)
 
@@ -13,6 +16,7 @@ func increaseLapCount():
 	if lapCount < totalNumberOfLaps:
 		lapCount = lapCount + 1
 		self.text = str(lapCount) + "/" + str(totalNumberOfLaps)
+		lapTimeCounter.resetLapStartTime()
 	else:
 		print("Finished Race!")
 

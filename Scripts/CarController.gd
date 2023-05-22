@@ -162,9 +162,13 @@ var checkPoints = [0, 1, 2, 3]
 var nextIndex = 0
 func _on_track_check_points_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body.name == "Car":
-		if nextIndex == 4:
-			lapCounter.increaseLapCount()
-			nextIndex = 0
-		elif local_shape_index == checkPoints[nextIndex]:
-			if nextIndex < checkPoints.size():
+		print(local_shape_index)
+		if local_shape_index == checkPoints[nextIndex]:
+			if nextIndex == 0:
+				lapCounter.increaseLapCount()
+			
+			if nextIndex < checkPoints.size() - 1:
 				nextIndex = nextIndex + 1
+			else:
+				nextIndex = 0
+				

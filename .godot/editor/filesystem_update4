@@ -1,12 +1,13 @@
 res://default_env.tres
-res://Scenes/lapCounter.tscn
-res://Scripts/CarController.gd
-res://Scripts/LapCounter.gd
 res://Scenes/Level1.tscn
 res://Scenes/Car.tscn
 res://Scenes/main_menu.tscn
-res://Scenes/interface.tscn
 res://Scenes/time.tscn
 res://Scenes/drift_marks.tscn
 res://Scenes/speed.tscn
+res://Scenes/lapCounter.tscn
+res://Scenes/interface.tscn
 res://Scenes/bestLap.tscn
+res://Scripts/CarController.gd
+res://Scripts/LapCounter.gd
+res://Scripts/TimeTracker.gd
