@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c27bvr337ikww"]
+[gd_scene load_steps=5 format=3 uid="uid://c27bvr337ikww"]
 
 [ext_resource type="PackedScene" uid="uid://dob2r3eby7mhc" path="res://Scenes/speed.tscn" id="1_gs672"]
 [ext_resource type="PackedScene" uid="uid://sjq33h36vyx7" path="res://Scenes/time.tscn" id="1_utkew"]
 [ext_resource type="PackedScene" uid="uid://bty7tvfoifenj" path="res://Scenes/lapCounter.tscn" id="3_f65sm"]
+[ext_resource type="PackedScene" uid="uid://cukke62gypkin" path="res://Scenes/bestLap.tscn" id="4_bexyf"]
 
 [node name="Interface" type="Node2D"]
 
@@ -24,6 +25,11 @@ position = Vector2(0, -512)
 color = Color(0.415686, 0.611765, 0.768627, 1)
 polygon = PackedVector2Array(1000, 552, 1104, 552, 1112, 560, 1112, 576, 1104, 584, 1000, 584, 992, 576, 992, 560)
 
+[node name="Polygon2D4" type="Polygon2D" parent="CanvasLayer"]
+position = Vector2(0, 24)
+color = Color(0.415686, 0.611765, 0.768627, 1)
+polygon = PackedVector2Array(920, 552, 1104, 552, 1112, 560, 1112, 576, 1104, 584, 920, 584, 912, 576, 912, 560)
+
 [node name="Speed" parent="CanvasLayer" instance=ExtResource("1_gs672")]
 position = Vector2(950, 506)
 
@@ -32,3 +38,6 @@ position = Vector2(950, 540)
 
 [node name="LapCounter" parent="CanvasLayer" instance=ExtResource("3_f65sm")]
 position = Vector2(950, 40)
+
+[node name="BestLap" parent="CanvasLayer" instance=ExtResource("4_bexyf")]
+position = Vector2(921, 576)

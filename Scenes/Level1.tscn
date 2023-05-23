@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://begtcjbmt8alr"]
+[gd_scene load_steps=9 format=3 uid="uid://begtcjbmt8alr"]
 
 [ext_resource type="Texture2D" uid="uid://cbguxsnpephhj" path="res://Sprites/Asphalt.png" id="2_fslrc"]
+[ext_resource type="Texture2D" uid="uid://d2avht5jubs7b" path="res://Sprites/separator.png" id="2_mrh8i"]
+[ext_resource type="Texture2D" uid="uid://fb0oka1wc6ro" path="res://Sprites/finishLine.png" id="3_6yxwp"]
 [ext_resource type="Texture2D" uid="uid://bxak3edpgk52j" path="res://Sprites/Gravel036S_1K_Color.png" id="3_bxsqf"]
 [ext_resource type="PackedScene" uid="uid://c56ep7k85v3b3" path="res://Scenes/Car.tscn" id="3_d0axy"]
 [ext_resource type="PackedScene" uid="uid://c27bvr337ikww" path="res://Scenes/interface.tscn" id="4_pv3sb"]
@@ -22,6 +24,22 @@ offset_bottom = 8806.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_fslrc")
 stretch_mode = 1
+
+[node name="Separator" type="Sprite2D" parent="Track"]
+position = Vector2(550, 846)
+rotation = -0.785397
+scale = Vector2(4.6, 4.6)
+texture = ExtResource("2_mrh8i")
+
+[node name="Separator2" type="Sprite2D" parent="Track"]
+position = Vector2(527, -97)
+scale = Vector2(4.6, 4.6)
+texture = ExtResource("2_mrh8i")
+
+[node name="FinishLine" type="Sprite2D" parent="Track"]
+position = Vector2(775, 250)
+scale = Vector2(4.99493, 4.99493)
+texture = ExtResource("3_6yxwp")
 
 [node name="GravelPits" type="Area2D" parent="Track"]
 
@@ -130,8 +148,8 @@ polygon = PackedVector2Array(-200, 500, -200, 250, 0, 250, 150, 400, 150, 500)
 [node name="TrackCheckPoints" type="Area2D" parent="Track"]
 
 [node name="Sector1" type="CollisionShape2D" parent="Track/TrackCheckPoints"]
-position = Vector2(555, 250)
-scale = Vector2(8.76, 1)
+position = Vector2(650, 250)
+scale = Vector2(31.16, 1)
 shape = SubResource("RectangleShape2D_3pxym")
 
 [node name="Sector2" type="CollisionShape2D" parent="Track/TrackCheckPoints"]
@@ -155,8 +173,7 @@ texture = ExtResource("4_xx8do")
 polygon = PackedVector2Array(600, -100, 600, 800, 700, 700, 700, 0)
 
 [node name="PitSeparatorCollision" type="CollisionPolygon2D" parent="Track"]
-visible = false
-polygon = PackedVector2Array(600, -100, 600, 800, 700, 700, 700, 0)
+polygon = PackedVector2Array(600, -100, 500, -100, 500, 900, 700, 700, 700, 0)
 
 [node name="TrackInternal" type="Polygon2D" parent="Track"]
 texture_repeat = 2
@@ -175,6 +192,15 @@ polygon = PackedVector2Array(850, 0, 400, -448, -88, -448, -88, 664, -128, 704, 
 [node name="TrackExternalCollision" type="CollisionPolygon2D" parent="Track"]
 visible = false
 polygon = PackedVector2Array(850, 0, 400, -448, -88, -448, -88, 664, -128, 704, -296, 704, -1350, -350, -1600, -350, -1700, -250, -1700, -50, -1450, 200, -1450, 550, -1750, 850, -1750, 1100, -1600, 1250, -1050, 1250, -1000, 1200, -800, 1200, -750, 1250, -750, 1550, -900, 1700, -1300, 1700, -1550, 1950, -1550, 2250, -1450, 2350, 900, 2350, 1050, 2200, 1050, 1800, 850, 1600, -150, 1600, -200, 1550, -200, 1400, -150, 1350, 350, 1350, 850, 850, 850, 0, 1900, 0, 1900, 2700, -3300, 2700, -3300, -950, 1900, -950, 1900, 0)
+
+[node name="Label" type="Label" parent="Track"]
+offset_left = 508.0
+offset_top = 854.0
+offset_right = 597.0
+offset_bottom = 906.0
+rotation = -0.785398
+text = "PIT CLOSED"
+horizontal_alignment = 1
 
 [node name="Car" parent="." instance=ExtResource("3_d0axy")]
 position = Vector2(-302, 1300)

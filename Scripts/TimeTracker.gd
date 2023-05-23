@@ -8,7 +8,6 @@ func _ready():
 
 func resetLapStartTime():
 	lap_start_time_msec = Time.get_ticks_msec()
-	print(lap_start_time_msec)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
