@@ -1,10 +1,11 @@
 res://default_env.tres
 res://Scenes/Level1.tscn
+res://Scripts/CarController.gd
 res://Scenes/Car.tscn
 res://Scenes/time.tscn
 res://Scenes/lapCounter.tscn
 res://Scenes/interface.tscn
-res://Scripts/CarController.gd
-res://Scripts/TimeTracker.gd
 res://Scenes/bestLap.tscn
 res://Scripts/BestLap.gd
+res://Scripts/TimeTracker.gd
+res://Scripts/LapCounter.gd

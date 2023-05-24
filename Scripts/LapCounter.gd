@@ -13,10 +13,10 @@ func _ready():
 	self.text = str(lapCount) + "/" + str(totalNumberOfLaps)
 
 func increaseLapCount():
+	lapTimeCounter.resetLapStartTime(lapCount)
 	if lapCount < totalNumberOfLaps:
 		lapCount = lapCount + 1
 		self.text = str(lapCount) + "/" + str(totalNumberOfLaps)
-		lapTimeCounter.resetLapStartTime()
 	else:
 		print("Finished Race!")
 

@@ -147,8 +147,10 @@ func _physics_process(_delta):
 		driftSoundPlayer.stop()
 
 	if onGravel:
-		var gravelForce = Vector2(sin(rotation), -cos(rotation)) * -velocity.length()  #this is good!
-		apply_force(gravelForce, backWheelPosition) #this is good!
+#		var gravelForce = Vector2(sin(rotation), -cos(rotation)) * -velocity.length()  #this is good!
+		var gravelForce = -velocity
+		apply_force(gravelForce/2, backWheelPosition) #this is good!
+		apply_force(gravelForce/2, frontWheelPosition) #this is good!
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Car":
