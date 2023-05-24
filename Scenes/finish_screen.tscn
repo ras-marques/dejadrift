@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://symjuw1xxynn"]
+
+[ext_resource type="Script" path="res://Scripts/finish_screen.gd" id="1_uhy4f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kibwi"]
+font_size = 37
+font_color = Color(0.909804, 0.835294, 0, 1)
+shadow_size = 6
+shadow_color = Color(0.509804, 0.0823529, 0, 0.568627)
+
+[node name="FinishScreen" type="CanvasLayer"]
+script = ExtResource("1_uhy4f")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(375, 175)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 175.0
+scale = Vector2(1.75953, 1.5448)
+color = Color(0.337255, 0.337255, 0.337255, 0.776471)
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 75.0
+offset_top = 25.0
+offset_right = 354.0
+offset_bottom = 79.0
+text = "RACE FINISHED!"
+label_settings = SubResource("LabelSettings_kibwi")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(-100, 200)
+amount = 500
+direction = Vector2(1, -1)
+spread = 25.0
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(500, 100)
+amount = 500
+direction = Vector2(-1, -1)
+spread = 25.0
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(275, 175)
+amount = 500
+direction = Vector2(-1, -1)
+spread = 180.0
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+color = Color(1, 1, 0.223529, 1)

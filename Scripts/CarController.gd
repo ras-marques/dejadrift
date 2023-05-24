@@ -31,7 +31,7 @@ func _ready():
 	driftSoundPlayer = get_node("ScreechSound")
 	accelerateSoundPlayer = get_node("AccelerateSound")
 	
-	lapCounter = get_node("../Interface/CanvasLayer/LapCounter/Label")
+	lapCounter = get_node("../Interface/LapCounter/Label")
 
 func get_input():
 	if Input.is_action_pressed("car_accelerate"):
@@ -151,6 +151,11 @@ func _physics_process(_delta):
 		var gravelForce = -velocity
 		apply_force(gravelForce/2, backWheelPosition) #this is good!
 		apply_force(gravelForce/2, frontWheelPosition) #this is good!
+	
+	#air friction
+	var airFrictionForce = -velocity.normalized()*(velocity.length()*velocity.length()*0.00025)
+	apply_force(airFrictionForce/2, backWheelPosition) #this is good!
+	apply_force(airFrictionForce/2, frontWheelPosition) #this is good!
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Car":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://begtcjbmt8alr"]
+[gd_scene load_steps=10 format=3 uid="uid://begtcjbmt8alr"]
 
 [ext_resource type="Texture2D" uid="uid://cbguxsnpephhj" path="res://Sprites/Asphalt.png" id="2_fslrc"]
 [ext_resource type="Texture2D" uid="uid://d2avht5jubs7b" path="res://Sprites/separator.png" id="2_mrh8i"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c56ep7k85v3b3" path="res://Scenes/Car.tscn" id="3_d0axy"]
 [ext_resource type="PackedScene" uid="uid://c27bvr337ikww" path="res://Scenes/interface.tscn" id="4_pv3sb"]
 [ext_resource type="Texture2D" uid="uid://ompb7376nfns" path="res://Sprites/Asphalt029B_1K_Color.png" id="4_xx8do"]
+[ext_resource type="PackedScene" uid="uid://symjuw1xxynn" path="res://Scenes/finish_screen.tscn" id="8_5e7m0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pxym"]
 
@@ -207,7 +208,9 @@ position = Vector2(-302, 1300)
 rotation = 1.0472
 
 [node name="Interface" parent="." instance=ExtResource("4_pv3sb")]
-z_index = 1
+
+[node name="FinishScreen" parent="." instance=ExtResource("8_5e7m0")]
+visible = false
 
 [connection signal="body_entered" from="Track/GravelPits" to="Car" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Track/GravelPits" to="Car" method="_on_gravel_pits_body_exited"]

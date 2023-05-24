@@ -6,6 +6,6 @@ res://Scenes/time.tscn
 res://Scenes/lapCounter.tscn
 res://Scenes/interface.tscn
 res://Scenes/bestLap.tscn
-res://Scripts/BestLap.gd
-res://Scripts/TimeTracker.gd
+res://Scenes/finish_screen.tscn
 res://Scripts/LapCounter.gd
+res://Scripts/finish_screen.gd
